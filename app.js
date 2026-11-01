@@ -20,12 +20,20 @@ async function init(){
  const {url,publishableKey}=window.LINGUA_SUPABASE_CONFIG;
  supabaseClient=window.supabase.createClient(url,publishableKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
  try{
-  const {data:{session}}=await supabaseClient.auth.getSession();
-  const {error}=await supabaseClient.from('profiles').select('id').limit(1);
-  if(error){setConnection('אין חיבור למסד הנתונים · מצב לא מקוון');if(session){currentUser=session.user;if(!isOwner())await routeLearner()}else console.info('Database unavailable:',error.message)}
-  else{schemaReady=true;setConnection('החיבור למסד הנתונים פעיל',true);if(session){currentUser=session.user;if(isOwner())setView('admin');else await routeLearner();await syncOfflineQueue()}}
+  const {data:{session},error:sessionError}=await supabaseClient.auth.getSession();
+  if(sessionError)throw sessionError;
+  if(!session){
+   // Anonymous visitors cannot SELECT from private profiles under RLS.
+   // Do not treat that expected restriction as a missing database: signup uses Supabase Auth.
+   schemaReady=true;setConnection('החיבור מוכן · ניתן לפתוח חשבון',true);
+  }else{
+   currentUser=session.user;
+   const {error}=await supabaseClient.from('profiles').select('id').eq('id',session.user.id).maybeSingle();
+   if(error){setConnection('אין גישה לפרופיל · בדוק חיבור ואישור חשבון');console.warn('Profile access check failed:',error.message)}
+   else{schemaReady=true;setConnection('החיבור למסד הנתונים פעיל',true);if(isOwner())setView('admin');else await routeLearner();await syncOfflineQueue()}
+  }
   supabaseClient.auth.onAuthStateChange((event)=>{if(event==='SIGNED_OUT'){currentUser=null;learnerProfile=null;setView('login')}});
- }catch(err){setConnection('לא ניתן לאמת את מסד הנתונים');console.error(err)}
+ }catch(err){setConnection('לא ניתן לאמת את החיבור');console.error(err)}
 }
 function isOwner(){return currentUser?.app_metadata?.role==='owner_admin'}
 async function routeLearner(){const {data:profile,error}=await supabaseClient.from('profiles').select('approval_status,display_name,learning_language,translation_language').eq('id',currentUser.id).maybeSingle();if(error||!profile){const cached=readLocal('profile:'+currentUser.id,null);if(cached?.approval_status==='approved'){learnerProfile=cached;learning=cached.learning_language;translation=cached.translation_language;$('#learnerLearning').value=learning;$('#learnerTranslation').value=translation;$('#learnerPair').textContent=(languageNames[learning]||learning)+' ← '+(languageNames[translation]||translation)+' · מצב לא מקוון';setView('learner');await refreshLearnerStats();await loadAchievements();await loadLearning(learningType);toast('מצב לא מקוון: תכנים שמורים והתקדמות תסונכרן בחיבור הבא.');return}toast('לא ניתן לאמת את אישור החשבון ללא חיבור.');return}if(profile.approval_status!=='approved'){toast('החשבון ממתין לאישור מנהל.');setView('login');return}writeLocal('profile:'+currentUser.id,profile);await enterLearner()}
