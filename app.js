@@ -16,15 +16,20 @@ function setConnection(message,good=false){const el=$('#connectionState');if(el)
 function setupChoices(id,callback){const root=$('#'+id);root?.addEventListener('click',e=>{const b=e.target.closest('[data-lang]');if(!b)return;root.querySelectorAll('.choice').forEach(x=>x.classList.toggle('selected',x===b));callback(b.dataset.lang)})}
 setupChoices('learningChoices',v=>learning=v);setupChoices('translationChoices',v=>translation=v);
 async function init(){
+ const recoveryLink=new URLSearchParams(window.location.hash.replace(/^#/, '')).get('type')==='recovery'||new URLSearchParams(window.location.search).get('type')==='recovery';
  if(!window.supabase?.createClient||!window.LINGUA_SUPABASE_CONFIG){setConnection('ספריית החיבור לא נטענה');return}
  const {url,publishableKey}=window.LINGUA_SUPABASE_CONFIG;
  supabaseClient=window.supabase.createClient(url,publishableKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
  try{
   const {data:{session},error:sessionError}=await supabaseClient.auth.getSession();
-  const recoveryLink=new URLSearchParams(window.location.hash.slice(1)).get('type')==='recovery';
-  if(recoveryLink)setView('recovery');
   if(sessionError)throw sessionError;
-  if(!session){
+  if(recoveryLink){
+   // Capture the recovery intent before Supabase processes and may clear the URL hash.
+   schemaReady=true;
+   if(session)currentUser=session.user;
+   setConnection('קישור איפוס זוהה · אפשר לבחור סיסמה חדשה',true);
+   setView('recovery');
+  }else if(!session){
    // Anonymous visitors cannot SELECT from private profiles under RLS.
    // Do not treat that expected restriction as a missing database: signup uses Supabase Auth.
    schemaReady=true;setConnection('החיבור מוכן · ניתן לפתוח חשבון',true);
