@@ -54,7 +54,8 @@ async function init(){
    // Do not treat that expected restriction as a missing database: signup uses Supabase Auth.
    schemaReady=true;setConnection('החיבור מוכן · ניתן לפתוח חשבון',true);
    // Returning users on this device land on sign-in, not on the signup form.
-   if(readLocal('returning',false))setView('login');
+   // The installed app (iPhone keeps separate storage) is usually opened by someone who already signed up.
+   if(readLocal('returning',false)||isStandalone())setView('login');
   }else{
    currentUser=session.user;
    if(await biometricUnlock(session.user.id)){
