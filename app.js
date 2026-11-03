@@ -223,6 +223,15 @@ $('#publishSelected')?.addEventListener('click',async()=>{const ids=$$('#draftsT
 $$('.tab').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));$('#showAdmin')?.addEventListener('click',()=>setView('admin'));
 ['#homeLearning','#homeTranslation'].forEach(sel=>$$(sel+' .choice').forEach(b=>b.addEventListener('click',()=>{$$(sel+' .choice').forEach(x=>x.classList.toggle('selected',x===b))})));
 $('#enterWorld')?.addEventListener('click',enterWorld);
+// Back button (on screen and the phone's back key): close popup → close quiz → world to home → learner preview to admin.
+function backTarget(){if($('#itemModal'))return 'modal';if($('#analyticsBox')&&!$('#adminView').classList.contains('hidden'))return 'analytics';if(!$('#quizPanel').classList.contains('hidden')&&!$('#learnerView').classList.contains('hidden'))return 'quiz';const lv=$('#learnerView');if(!lv.classList.contains('hidden')&&lv.classList.contains('mode-world'))return 'world';if(!lv.classList.contains('hidden')&&isOwner())return 'admin';if(!$('#loginView').classList.contains('hidden')||!$('#recoveryView').classList.contains('hidden'))return currentUser?'':'register';return ''}
+function goBack(){const t=backTarget();if(t==='modal')$('#itemModal').remove();else if(t==='analytics')$('#analyticsBox').remove();else if(t==='quiz'){$('#quizPanel').classList.add('hidden');window.scrollTo({top:0,behavior:'smooth'})}else if(t==='world')setLearnerMode('home');else if(t==='admin')setView('admin');else if(t==='register')setView('register');updateBackBtn()}
+function updateBackBtn(){const b=$('#backBtn');if(b)b.classList.toggle('hidden',!backTarget())}
+$('#backBtn')?.addEventListener('click',goBack);
+setInterval(updateBackBtn,400);
+let lastTarget='';setInterval(()=>{const t=backTarget();if(t&&t!==lastTarget)history.pushState({lingua:t},'');lastTarget=t},400);
+window.addEventListener('popstate',()=>{if(backTarget()){goBack();lastTarget=backTarget()}});
+$('#refreshHome')?.addEventListener('click',async e=>{const b=e.currentTarget;b.disabled=true;b.textContent='🔄 מרענן...';try{await navigator.serviceWorker?.getRegistration().then(r=>r&&r.update())}catch{}await renderHomeProgress();try{await refreshLearnerStats();await loadAchievements()}catch{}b.disabled=false;b.textContent='🔄 רענון';toast('הנתונים עודכנו ✨')});
 $('#startPractice')?.addEventListener('click',async()=>{if(learningType!=='word'||!learningItems.length)await loadLearning('word');openPractice()});
 $('#backHome')?.addEventListener('click',()=>{$('#itemModal')?.remove();setLearnerMode('home')});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#itemModal')?.remove()});
