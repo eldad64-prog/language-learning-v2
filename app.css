@@ -34,7 +34,7 @@ main{max-width:1120px;margin:auto;padding:36px 20px}
 .mini-label{font-size:12px;font-weight:700;color:var(--violet)}
 .lang-line{display:flex;justify-content:space-between;align-items:center;padding:11px 0;font-size:21px;border-bottom:2px dashed #f0ecfb}
 .lang-line span{font-size:11px;font-weight:800;color:#fff;border-radius:8px;padding:4px 8px}
-.lang-line:nth-of-type(2) span{background:var(--sky)}.lang-line:nth-of-type(3) span{background:var(--pink)}.lang-line:nth-of-type(4) span{background:var(--orange)}
+.lang-line span{background:var(--sky)}.lang-line:nth-of-type(2) span{background:var(--pink)}.lang-line:nth-of-type(3) span{background:var(--orange)}
 .progress{height:10px;background:#f1edfb;border-radius:10px;margin-top:16px;overflow:hidden}
 .progress i{display:block;width:68%;height:100%;background:linear-gradient(90deg,var(--mint),var(--sky));border-radius:10px}
 .language-card small{display:block;margin-top:9px;color:var(--muted);font-size:12px}
@@ -120,7 +120,9 @@ td button{border:2px solid #e6e0fa;background:#fff;border-radius:10px;padding:6p
 .learning-image{position:relative;width:100%;aspect-ratio:4/3;margin:0;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,#f1ecff,#ffeef6)}
 .learning-image img{width:100%;height:100%;object-fit:cover;display:block}
 .learning-image a{position:absolute;bottom:6px;left:6px;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.9);color:var(--ink);font-size:12px;line-height:22px;text-align:center;text-decoration:none}
-.learning-card-copy{flex:1;min-width:0;text-align:center}
+.learning-card-copy{flex:1;min-width:0;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#learnerView{display:flex;flex-direction:column}
+#learnerView>.panel-heading{order:1}#learnerView>.learner-stats{order:2}#learnerView>.admin-toolbar{order:3}#learnerView>#learningNotice{order:4}#learnerView>#quizPanel{order:5}#learnerView>#learningList{order:6}#learnerView>.learner-settings{order:7}#learnerView>.admin-box:not(.learner-settings):not(#quizPanel){order:8}
 .learning-card small{display:inline-block;color:var(--violet);background:#f1ecff;border-radius:999px;padding:3px 10px;font-size:11px;font-weight:700}
 .learning-card h3{font-size:26px;margin:10px 0 4px;font-weight:900;color:var(--ink);word-break:break-word}
 .learning-card p{margin:0;color:#4c4470;font-size:16px;font-weight:600}
