@@ -1,5 +1,5 @@
-const CACHE='lingua-v2-shell-39';
-const ASSETS=['./','./index.html','./app.css','./app.js','./supabase-config.js','./manifest.webmanifest','./icon.svg'];
+const CACHE='lingua-v2-shell-40';
+const ASSETS=['./','./index.html','./app.css','./app.js','./supabase-config.js','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png'];
 const SUPABASE_SDK='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
 self.addEventListener('install',event=>{event.waitUntil((async()=>{const cache=await caches.open(CACHE);await cache.addAll(ASSETS);try{const response=await fetch(SUPABASE_SDK,{mode:'cors'});if(response.ok)await cache.put(SUPABASE_SDK,response)}catch(error){console.warn('SDK cache deferred',error)}await self.skipWaiting()})())});
 self.addEventListener('activate',event=>{event.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(key=>key.startsWith('lingua-v2-shell-')&&key!==CACHE).map(key=>caches.delete(key)));await self.clients.claim()})())});
