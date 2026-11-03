@@ -180,3 +180,5 @@ main{padding:20px 14px}
 footer{flex-wrap:wrap;gap:10px}
 }
 @media(max-width:380px){.learning-list{grid-template-columns:1fr}}
+
+.bio-lock{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:linear-gradient(135deg,rgba(123,92,255,.92),rgba(255,95,162,.92) 60%,rgba(255,159,67,.92))}.bio-lock-card{width:100%;max-width:380px;background:#fff;border-radius:28px;padding:30px 24px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.2)}.bio-icon{font-size:56px;line-height:1}.bio-lock-card h2{margin:12px 0 6px;font-size:26px;font-weight:900}.bio-lock-card p{color:var(--muted);margin:0 0 20px}.bio-lock-card .secondary{width:100%;margin-top:12px}.panel-heading .secondary{white-space:nowrap}
