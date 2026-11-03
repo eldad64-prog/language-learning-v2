@@ -119,6 +119,9 @@ td button{border:2px solid #e6e0fa;background:#fff;border-radius:10px;padding:6p
 .learning-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(91,63,200,.16)}
 .learning-image{position:relative;width:100%;aspect-ratio:4/3;margin:0;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,#f1ecff,#ffeef6)}
 .learning-image img{width:100%;height:100%;object-fit:cover;display:block}
+.learning-image.emoji,.item-image.emoji{display:flex;align-items:center;justify-content:center;line-height:1}
+.learning-image.emoji span{font-size:64px}.item-image.emoji span{font-size:110px}
+.quiz-emoji{display:block;font-size:72px;margin:10px auto;animation:pop .5s}
 .learning-image a{position:absolute;bottom:6px;left:6px;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.9);color:var(--ink);font-size:12px;line-height:22px;text-align:center;text-decoration:none}
 .learning-card-copy{flex:1;min-width:0;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
 #learnerView{display:flex;flex-direction:column}
