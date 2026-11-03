@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#7b5cff"><meta name="description" content="לימוד עברית, אנגלית ותאית עם התקדמות אישית"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml"><title>Lingua — לומדים שפה בדרך שלך</title>
-<link rel="stylesheet" href="./app.css?v=18">
+<link rel="stylesheet" href="./app.css?v=19">
 </head>
 <body>
 <header class="topbar"><a class="brand" href="#"><span class="brand-mark">L</span><span>lingua<span class="brand-dot">.</span></span></a><div class="top-actions"><span class="status"><i></i> סביבת פיתוח V2</span><button class="ghost" id="showAdmin">תצוגת מנהל</button></div></header>
@@ -26,7 +26,7 @@
 <div class="stats learner-stats"><article><small>פריטים שנלמדו</small><strong id="learnedCount">0</strong><span>התקדמות אישית</span></article><article><small>פריטים לתרגול</small><strong id="availableCount">0</strong><span>במאגר המשותף</span></article><article><small>מבחנים שבוצעו</small><strong id="testCount">0</strong><span>בחשבון שלך</span></article><article><small>ציון אחרון</small><strong id="lastScore">—</strong><span>באחוזים</span></article></div>
 <div class="admin-box learner-settings"><h3>הגדרות שפה</h3><p class="fineprint">אפשר לשנות את צמד השפות בכל עת. ההתקדמות הקודמת נשמרת בחשבון.</p><div class="admin-form"><label>שפת לימוד<select id="learnerLearning"><option value="th">תאית</option><option value="en">אנגלית</option><option value="he">עברית</option></select></label><label>שפת תרגום<select id="learnerTranslation"><option value="he">עברית</option><option value="en">אנגלית</option><option value="th">תאית</option></select></label></div><div class="admin-toolbar"><button class="secondary" id="saveLanguagePair">שמור שינויי שפה</button></div></div>
 <div class="admin-box"><h3>ההישגים שלי</h3><div id="achievementsList" class="notice">ההישגים האישיים שלך יופיעו כאן.</div></div>
-<div class="admin-toolbar"><button class="secondary" id="showWords">מילים</button><button class="secondary" id="showSentences">משפטים</button><button class="primary small-primary" id="startTest">מבחן קצר · 10 שאלות</button></div>
+<div class="admin-toolbar"><button class="secondary" id="showWords">מילים</button><button class="secondary" id="showSentences">משפטים</button><button class="primary small-primary" id="startTest">מבחן קצר · 10 שאלות</button><button class="primary small-primary practice-start" type="button" id="startPractice">🎤 תרגול הגייה</button></div>
 <div id="learningNotice" class="notice">התכנים המשותפים יופיעו כאן לאחר פרסומם.</div><div id="learningList" class="learning-list"></div>
 <div id="quizPanel" class="admin-box hidden"><h3>מבחן תרגול</h3><div id="quizQuestion"></div><div id="quizAnswers" class="quiz-answers"></div><div id="quizFeedback"></div><button class="primary small-primary hidden" id="nextQuestion">השאלה הבאה</button></div>
 </section>
@@ -47,5 +47,5 @@
 </section>
 <section class="bottom-note"><span>✦</span><div><b>ההתקדמות שלך. הפרטיות שלך.</b><p>כל משתמש רואה רק את הנתונים האישיים שלו. נתוני ניהול יהיו נגישים למנהל המערכת בלבד.</p></div></section>
 </main><footer><span>LINGUA V2</span><span>נבנה ללמידה מתמשכת · <a href="./README.md">מידע על הפרויקט</a></span></footer>
-<div class="toast" id="toast" role="status" aria-live="polite"></div><div class="connection wait" id="connectionState">בודק חיבור...</div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./supabase-config.js?v=2"></script><script src="./app.js?v=16"></script><script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>
+<div class="toast" id="toast" role="status" aria-live="polite"></div><div class="connection wait" id="connectionState">בודק חיבור...</div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./supabase-config.js?v=2"></script><script src="./app.js?v=17"></script><script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>
 </body></html>
