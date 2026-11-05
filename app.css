@@ -385,3 +385,6 @@ i.zero{background:#ece8f5}i.lo{background:#a7ecd2}i.md{background:#3fd3a0}i.hi{b
 .plan-pick{display:flex;align-items:center;justify-content:center;min-height:48px;text-decoration:none;width:100%;box-sizing:border-box}
 .plan-note{font-size:14px;color:#555;margin:4px 0}
 .plan-up h2{margin:4px 0 8px}.plan-up-what{font-size:18px;font-weight:700}
+.invite-langs{display:grid;gap:10px;margin:14px 0}
+.invite-l{display:flex;align-items:center;justify-content:center;min-height:50px;text-decoration:none;font-size:18px}
+.home-invite{margin-top:8px}
