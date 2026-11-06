@@ -388,3 +388,4 @@ i.zero{background:#ece8f5}i.lo{background:#a7ecd2}i.md{background:#3fd3a0}i.hi{b
 .invite-langs{display:grid;gap:10px;margin:14px 0}
 .invite-l{display:flex;align-items:center;justify-content:center;min-height:50px;text-decoration:none;font-size:18px}
 .home-invite{margin-top:8px}
+.admin-manual>summary{cursor:pointer;font-weight:700;font-size:17px;padding:4px 0;list-style-position:inside}.admin-manual>summary small{font-weight:400;color:#666}.admin-manual[open]>summary{margin-bottom:12px}
