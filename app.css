@@ -416,4 +416,4 @@ i.zero{background:#ece8f5}i.lo{background:#a7ecd2}i.md{background:#3fd3a0}i.hi{b
 .extra-tools{margin-top:18px;padding-top:14px;border-top:2px dashed #e4e0f5}.news-sheet{text-align:center}.news-sheet h2{margin:4px 0 10px}
 .news-list{text-align:start;margin:0 0 14px;padding-inline-start:4px;list-style:none;display:grid;gap:10px}
 .news-list li{background:#f6f3ff;border-radius:14px;padding:10px 12px;font-size:16px;line-height:1.5}
-.news-sheet #newsOk{width:100%;min-height:52px}
+.news-sheet #newsOk{width:100%;min-height:52px}#learnerView>.type-switch{order:2}#learnerView>.extra-tools,#learnerView>#quizPanel{order:6}
