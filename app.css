@@ -420,3 +420,9 @@ i.zero{background:#ece8f5}i.lo{background:#a7ecd2}i.md{background:#3fd3a0}i.hi{b
 
 .quiz-answer .ans-latin{display:block;font-size:.78em;font-weight:600;opacity:.7;margin-top:3px;letter-spacing:.2px}
 .quiz-answer.correct .ans-latin,.quiz-answer.incorrect .ans-latin{opacity:.9}
+.spell-pron{text-align:center;color:#6b5bd6;font-weight:700;margin:4px 0 0}
+.spell-box{display:grid;gap:10px;width:100%}
+.spell-hint{text-align:center;font-size:22px;letter-spacing:2px;font-family:ui-monospace,monospace;min-height:30px;color:#5b4bc4}
+#spellInput{font-size:24px;text-align:center;padding:12px;border-radius:14px;border:2px solid #d9d2ff;width:100%;box-sizing:border-box}
+#spellInput.correct{border-color:#2fb36b;background:#effbf4}#spellInput.incorrect{border-color:#e05a5a;background:#fdf0f0}
+.spell-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.spell-actions .primary{flex:1 1 100%}
