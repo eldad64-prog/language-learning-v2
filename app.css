@@ -417,3 +417,6 @@ i.zero{background:#ece8f5}i.lo{background:#a7ecd2}i.md{background:#3fd3a0}i.hi{b
 .news-list{text-align:start;margin:0 0 14px;padding-inline-start:4px;list-style:none;display:grid;gap:10px}
 .news-list li{background:#f6f3ff;border-radius:14px;padding:10px 12px;font-size:16px;line-height:1.5}
 .news-sheet #newsOk{width:100%;min-height:52px}#learnerView>.type-switch{order:2}#learnerView>.extra-tools,#learnerView>#quizPanel{order:6}
+
+.quiz-answer .ans-latin{display:block;font-size:.78em;font-weight:600;opacity:.7;margin-top:3px;letter-spacing:.2px}
+.quiz-answer.correct .ans-latin,.quiz-answer.incorrect .ans-latin{opacity:.9}
