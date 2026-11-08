@@ -411,3 +411,9 @@ i.zero{background:#ece8f5}i.lo{background:#a7ecd2}i.md{background:#3fd3a0}i.hi{b
 #showWords::before{content:"📚 "}#showSentences::before{content:"💬 "}
 .pg-src{display:block;color:#666;margin:4px 0 0}
 .top-signout{font-weight:700}
+.type-switch{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:16px;margin:8px 0 14px;border-radius:24px;background:linear-gradient(135deg,#fff4d6,#ffe0ef 50%,#e3ecff);border:2px solid #ffd27a;box-shadow:0 8px 22px rgba(255,160,60,.18)}
+.type-switch #showWords,.type-switch #showSentences{width:100%;min-height:64px;font-size:21px}
+.extra-tools{margin-top:18px;padding-top:14px;border-top:2px dashed #e4e0f5}.news-sheet{text-align:center}.news-sheet h2{margin:4px 0 10px}
+.news-list{text-align:start;margin:0 0 14px;padding-inline-start:4px;list-style:none;display:grid;gap:10px}
+.news-list li{background:#f6f3ff;border-radius:14px;padding:10px 12px;font-size:16px;line-height:1.5}
+.news-sheet #newsOk{width:100%;min-height:52px}
