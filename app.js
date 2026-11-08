@@ -239,7 +239,8 @@ function heFromThai(s){const C={'ก':'ג','ข':'ק','ค':'ק','ฆ':'ק','ง
   out+=t.h}
  return out.replace(/\s+/g,' ').trim()}
 function thaiWordsHebrew(s){try{if(window.Intl&&Intl.Segmenter){return [...new Intl.Segmenter('th',{granularity:'word'}).segment(s)].filter(x=>x.isWordLike).map(x=>heFromThai(x.segment)).join(' ')}}catch{}return heFromThai(s)}
-function ansHtml(x){if(learning==='en')return '<span dir="ltr" lang="en">'+escapeHtml(x.source_text)+'</span>'+(x.transliteration?'<small class="ans-latin">'+escapeHtml(x.transliteration)+'</small>':'');const l=x.transliteration||x.source_text;return escapeHtml(l)+pron2Html(x,l)}return learning==='en'?x.source_text:latinFor(x)}
+function ansHtml(x){if(learning==='en')return '<span dir="ltr" lang="en">'+escapeHtml(x.source_text)+'</span>'+(x.transliteration?'<small class="ans-latin">'+escapeHtml(x.transliteration)+'</small>':'');const l=x.transliteration||x.source_text;return escapeHtml(l)+pron2Html(x,l)}
+function pron2(x){return learning==='en'?x.source_text:latinFor(x)}
 function pron2Html(x,shown){const p=pron2(x);return p&&p!==shown?'<small class="ans-latin" dir="ltr" lang="en">'+escapeHtml(p)+'</small>':''}
 // Thai has no spaces between words: split into words first so the pronunciation is readable.
 function thaiWordsLatin(s){try{if(window.Intl&&Intl.Segmenter){return [...new Intl.Segmenter('th',{granularity:'word'}).segment(s)].filter(x=>x.isWordLike).map(x=>latinFromThai(x.segment)).join(' ')}}catch{}return latinFromThai(s)}
@@ -293,6 +294,7 @@ function renderQuestion(){
  $('#quizFeedback').className='';
  $('#quizQuestion').innerHTML='<div class="quiz-top"><span class="quiz-level">'+lvl.icon+' רמה '+lvl.n+' · '+lvl.name+'</span><span class="quiz-count">שאלה '+(quizIndex+1)+' מתוך '+quizItems.length+' · ✅ '+quizCorrect+'</span></div><div class="quiz-progress"><i style="width:'+Math.round(quizIndex/quizItems.length*100)+'%"></i></div>'+'<p class="quiz-ask">איך אומרים ב'+(languageNames[learning]||learning)+'?'+(reverse?' (בחר את המילה בכתב המקורי)':' (בחר את ההגייה הנכונה)')+'</p><h3 lang="'+translation+'">'+escapeHtml(item.translation_text)+'</h3>';
  if(quizLevel===5){renderSpelling(item);return}
+ const choices=shuffle([item,...shuffle(pool.filter(x=>x.id!==item.id)).slice(0,Math.min(3,pool.length-1))]);
  $('#quizAnswers').innerHTML=choices.map(x=>'<button class="quiz-answer" data-answer="'+x.id+'">'+(reverse?escapeHtml(x.source_text):ansHtml(x))+'</button>').join('');
  $('#quizAnswers').querySelectorAll('[data-answer]').forEach(b=>b.addEventListener('click',()=>answerQuestion(b,item)))
 }
