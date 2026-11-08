@@ -403,4 +403,4 @@ i.zero{background:#ece8f5}i.lo{background:#a7ecd2}i.md{background:#3fd3a0}i.hi{b
 .pic-game #pgNext,.pg-end .primary,.pg-end .secondary,.pg-exit .primary,.pg-exit .secondary{width:100%;min-height:50px;margin-top:10px}
 .pg-score{font-size:30px;margin:6px 0}
 .pg-exit h2{margin:6px 0}.pg-exit p{font-size:17px}
-.home-pic{margin-top:8px}
+.home-pic{margin-top:8px}.pic-game .quiz-top{padding-inline-end:44px;align-items:center}.pic-game .pg-img img{min-height:160px}
