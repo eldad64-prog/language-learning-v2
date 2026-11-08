@@ -404,3 +404,10 @@ i.zero{background:#ece8f5}i.lo{background:#a7ecd2}i.md{background:#3fd3a0}i.hi{b
 .pg-score{font-size:30px;margin:6px 0}
 .pg-exit h2{margin:6px 0}.pg-exit p{font-size:17px}
 .home-pic{margin-top:8px}.pic-game .quiz-top{padding-inline-end:44px;align-items:center}.pic-game .pg-img img{min-height:160px}
+
+#showWords,#showSentences{min-height:58px;padding:12px 28px;font-size:19px;font-weight:800;color:#fff;border:0;border-radius:18px}
+#showWords{background:linear-gradient(135deg,#2f80ed,#56ccf2);box-shadow:0 6px 0 #1d5fb8,0 12px 24px rgba(47,128,237,.3)}
+#showSentences{background:linear-gradient(135deg,#8e44ad,#c86dd7);box-shadow:0 6px 0 #6c2f86,0 12px 24px rgba(142,68,173,.3)}
+#showWords::before{content:"📚 "}#showSentences::before{content:"💬 "}
+.pg-src{display:block;color:#666;margin:4px 0 0}
+.top-signout{font-weight:700}
