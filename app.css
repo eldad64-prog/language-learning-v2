@@ -437,3 +437,5 @@ i.zero{background:#ece8f5}i.lo{background:#a7ecd2}i.md{background:#3fd3a0}i.hi{b
 .home-today{margin-top:8px}
 .pg-word{margin:14px auto;padding:26px 16px;border-radius:22px;background:linear-gradient(135deg,#f3eeff,#ffeef6);font-size:32px;font-weight:900;text-align:center;color:var(--ink)}
 .pg-tr{margin:8px 0 2px;text-align:center;font-size:26px;font-weight:900;color:var(--ink)}
+#usersTable td.user-actions{white-space:nowrap}
+#usersTable td.user-actions button{margin:2px}
