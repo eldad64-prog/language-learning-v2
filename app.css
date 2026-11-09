@@ -432,3 +432,5 @@ i.zero{background:#ece8f5}i.lo{background:#a7ecd2}i.md{background:#3fd3a0}i.hi{b
 .quiz-answer .ans-latin{font-size:.8em;opacity:.8}
 .quiz-answer-word{font-size:30px}
 .quiz-answer-pron{font-size:20px}
+.pulse-hint{animation:pulseHint 1.2s ease-in-out 4;border-color:var(--violet)!important}
+@keyframes pulseHint{50%{transform:scale(1.04);box-shadow:0 0 0 6px rgba(124,92,255,.25)}}
