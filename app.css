@@ -426,3 +426,9 @@ i.zero{background:#ece8f5}i.lo{background:#a7ecd2}i.md{background:#3fd3a0}i.hi{b
 #spellInput{font-size:24px;text-align:center;padding:12px;border-radius:14px;border:2px solid #d9d2ff;width:100%;box-sizing:border-box}
 #spellInput.correct{border-color:#2fb36b;background:#effbf4}#spellInput.incorrect{border-color:#e05a5a;background:#fdf0f0}
 .spell-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.spell-actions .primary{flex:1 1 100%}
+/* v59: bigger answer text in quizzes, readable while walking */
+.quiz-answer:not(.level-btn){font-size:24px;line-height:1.35;padding:18px 14px;min-height:66px}
+.pg-answers .quiz-answer{font-size:24px;min-height:66px}
+.quiz-answer .ans-latin{font-size:.8em;opacity:.8}
+.quiz-answer-word{font-size:30px}
+.quiz-answer-pron{font-size:20px}
