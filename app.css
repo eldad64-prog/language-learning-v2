@@ -434,3 +434,5 @@ i.zero{background:#ece8f5}i.lo{background:#a7ecd2}i.md{background:#3fd3a0}i.hi{b
 .quiz-answer-pron{font-size:20px}
 .pulse-hint{animation:pulseHint 1.2s ease-in-out 4;border-color:var(--violet)!important}
 @keyframes pulseHint{50%{transform:scale(1.04);box-shadow:0 0 0 6px rgba(124,92,255,.25)}}
+.home-today{margin-top:8px}
+.pg-word{margin:14px auto;padding:26px 16px;border-radius:22px;background:linear-gradient(135deg,#f3eeff,#ffeef6);font-size:32px;font-weight:900;text-align:center;color:var(--ink)}
