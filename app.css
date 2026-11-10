@@ -439,3 +439,5 @@ i.zero{background:#ece8f5}i.lo{background:#a7ecd2}i.md{background:#3fd3a0}i.hi{b
 .pg-tr{margin:8px 0 2px;text-align:center;font-size:26px;font-weight:900;color:var(--ink)}
 #usersTable td.user-actions{white-space:nowrap}
 #usersTable td.user-actions button{margin:2px}
+.walk-btn{width:100%;margin-top:12px;font-size:18px;min-height:56px}
+.walk-btn.on{background:linear-gradient(135deg,#7c5cff,#ff6fae);color:#fff;border-color:transparent}
