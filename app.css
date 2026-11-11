@@ -443,3 +443,4 @@ i.zero{background:#ece8f5}i.lo{background:#a7ecd2}i.md{background:#3fd3a0}i.hi{b
 .walk-btn.on{background:linear-gradient(135deg,#7c5cff,#ff6fae);color:#fff;border-color:transparent}
 
 .user-actions button.danger{background:#fde8e8;color:#b42318;border:1px solid #f5b5b0;margin-top:4px}
+.resume-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0;padding:12px 14px;border-radius:14px;background:#eef6ff;border:1px solid #cfe2ff;font-size:17px}.resume-bar.random{background:#f4efff;border-color:#ddd0ff}.resume-bar span{flex:1;min-width:180px}.resume-bar button{font-size:18px;padding:10px 18px}
