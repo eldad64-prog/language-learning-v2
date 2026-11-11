@@ -441,3 +441,5 @@ i.zero{background:#ece8f5}i.lo{background:#a7ecd2}i.md{background:#3fd3a0}i.hi{b
 #usersTable td.user-actions button{margin:2px}
 .walk-btn{width:100%;margin-top:12px;font-size:18px;min-height:56px}
 .walk-btn.on{background:linear-gradient(135deg,#7c5cff,#ff6fae);color:#fff;border-color:transparent}
+
+.user-actions button.danger{background:#fde8e8;color:#b42318;border:1px solid #f5b5b0;margin-top:4px}
